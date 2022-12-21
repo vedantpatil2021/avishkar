@@ -19,6 +19,7 @@ import Statistics from "./pages/Statistics";
 import Register from "./auth/Register";
 import ProtectedRoute from "./routes/ProtectedRoutes";
 import { UserAuthContextProvider } from "./context/UserAuthContext";
+import UploadGrievance from "./pages/UploadGrievance";
 
 function App() {
   return (
@@ -96,6 +97,14 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Statistics />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/uploadgrievance"
+              element={
+                <ProtectedRoute>
+                  <UploadGrievance />
                 </ProtectedRoute>
               }
             />
