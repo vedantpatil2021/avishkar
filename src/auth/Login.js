@@ -120,7 +120,7 @@ function Login() {
                                         </Button>
                                     </Center>
                                     <Stack>
-                                        <h6 style={{ textAlign: 'center' }}>Already have an account?  <Link color={'blue.400'}>Login In</Link></h6>
+                                        <h6 style={{ textAlign: 'center' }}>Don't have an account?  <Link  href='/register' color={'blue.400'}>Register here</Link></h6>
                                     </Stack>
                                 </Stack>
                             </form>

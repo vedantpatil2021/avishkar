@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
     Box,
     Flex,
@@ -17,9 +17,27 @@ import {
     FormControl,
     FormLabel,
 } from "@chakra-ui/react";
+import { db } from '../../firebase/Firebase';
+import { addDoc, collection } from 'firebase/firestore';
 
 function BaseTableTemp(props) {
     const { isOpen, onOpen, onClose } = useDisclosure();
+    const [data, setData] = useState("");
+
+    const addData = async () =>{
+        const docRef = collection(db,`${props.collection}`);
+        await addDoc(docRef,{
+            name: data,
+        })
+        .then((doc)=>{
+            console.log("data is created = ",doc.id);
+        })
+        .catch((err)=>{
+            console.log("erroe => ",err);
+        })
+        onClose();
+    }
+
     return (
         <div>
             {/* Sarting Template */}
@@ -59,7 +77,7 @@ function BaseTableTemp(props) {
                     <ModalBody>
                         <FormControl p="2">
                             <FormLabel>Add {props.name}</FormLabel>
-                            <Input type="text" />
+                            <Input type="text" onChange={(e) => setData(e.target.value)} />
                         </FormControl>
                     </ModalBody>
 
@@ -72,7 +90,7 @@ function BaseTableTemp(props) {
                         >
                             Close
                         </Button>
-                        <Button colorScheme="teal" mr={3}>
+                        <Button colorScheme="teal" mr={3} onClick={addData}>
                             Save
                         </Button>
                     </ModalFooter>

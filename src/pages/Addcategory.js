@@ -5,8 +5,8 @@ import BaseTableTemp from '../components/basetable/BaseTableTemp'
 function Addcategory() {
     return (
         <div>
-            <BaseTableTemp name="Category" modal/>
-            <BaseTableTable col1="Sr. NO." col2="Category" col3="Action"/>
+            <BaseTableTemp name="Category" collection="category" S modal/>
+            <BaseTableTable col1="Sr. NO." col2="Category" col3="Action" collection="category"/>
         </div>
     )
 }

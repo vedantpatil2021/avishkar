@@ -35,8 +35,8 @@ export const createUserDoc = async (user,otherData) => {
     displayName:displayName,
     role:"User"
   })
-  .then((data) => {
-    console.log("Data is created with => ",data);
+  .then((doc) => {
+    console.log("Data is created with => ",doc);
   })
 }
 
