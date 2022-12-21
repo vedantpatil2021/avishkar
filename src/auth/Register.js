@@ -41,8 +41,7 @@ function Register() {
         try {
             const user = await signUp(email, password);
             await createUserDoc(user, otherData);
-
-            navigate("/");
+            navigate("/login");
         } catch (err) {
             setError(err.message);
         }
@@ -121,7 +120,7 @@ function Register() {
                                 </Stack>
                                 <Stack pt={6}>
                                     <Text align={'center'}>
-                                        Already a user? <Link color={'blue.400'}>Login</Link>
+                                        Already a user? <Link href='/login' color={'blue.400'}>Login</Link>
                                     </Text>
                                 </Stack>
                             </form>
